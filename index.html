@@ -1,13 +1,91 @@
-<html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Tênis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group input[type="submit"] {
+            width: auto;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
 <body>
-    
-    <h2>Média de notas com JavaScript</h2>
+    <div class="form-container">
+        <h1>Cadastro de Tênis</h1>
+        <form action="/submit" method="post">
+            <!-- Campo de Texto -->
+            <div class="form-group">
+                <label for="brand">Marca:</label>
+                <input type="text" id="brand" name="brand" required>
+            </div>
 
-    Primeira nota <input id="nota1" type="number"> <br/>
-    Segunda nota <input id="nota2" type="number"> <br/>
+            <!-- Campo de Texto com Validação -->
+            <div class="form-group">
+                <label for="model">Modelo:</label>
+                <input type="text" id="model" name="model" pattern="[A-Za-z0-9 ]+" title="Modelo deve conter apenas letras, números e espaços" required>
+            </div>
 
-    <button onclick="media()">Calcular Média</button>
+            <!-- Campo de Seleção -->
+            <div class="form-group">
+                <label for="size">Tamanho:</label>
+                <select id="size" name="size" required>
+                    <option value="">Selecione</option>
+                    <option value="36">36</option>
+                    <option value="37">37</option>
+                    <option value="38">38</option>
+                    <option value="39">39</option>
+                    <option value="40">40</option>
+                </select>
+            </div>
 
-    <script src="./main.js"></script>
+            <!-- Campo de Data -->
+            <div class="form-group">
+                <label for="purchase-date">Data de Compra:</label>
+                <input type="date" id="purchase-date" name="purchase-date" required>
+            </div>
+
+            <!-- Campo de Área de Texto -->
+            <div class="form-group">
+                <label for="description">Descrição:</label>
+                <textarea id="description" name="description" rows="4" placeholder="Descreva o tênis aqui..."></textarea>
+            </div>
+
+            <!-- Botão de Envio -->
+            <div class="form-group">
+                <input type="submit" value="Cadastrar">
+            </div>
+        </form>
+    </div>
 </body>
 </html>
